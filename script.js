@@ -56,8 +56,8 @@ let noteText = document.querySelectorAll(".note-text");
 note.forEach((elem) => {
   elem.addEventListener("mousedown", () => {
     elem.style.backgroundColor = "#d5d5d5ff";
-    audio.src = elem.getAttribute("data-src");
-    audio.play();
+    let sound = new Audio(elem.getAttribute("data-src"));
+  sound.play();
   });
   elem.addEventListener("mouseup", () => {
     elem.style.backgroundColor = "#ffffff";
@@ -68,8 +68,8 @@ document.body.addEventListener("keydown", (dets) => {
   note.forEach((elem) => {
     if (elem.innerText == dets.key) {
       elem.style.backgroundColor = "#d5d5d5ff";
-      audio.src = elem.getAttribute("data-src");
-      audio.play();
+      let sound = new Audio(elem.getAttribute("data-src"));
+  sound.play();
     }
   });
 });
