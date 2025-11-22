@@ -65,6 +65,8 @@ note.forEach((elem) => {
 });
 
 document.body.addEventListener("keydown", (dets) => {
+   if (dets.repeat) return;
+  
   note.forEach((elem) => {
     if (elem.innerText == dets.key) {
       elem.style.backgroundColor = "#d5d5d5ff";
