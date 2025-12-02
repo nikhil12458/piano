@@ -218,8 +218,6 @@ const keys = [
     type: "black",
     whiteIndex: 15,
   },
-
-  // these 3 are duplicates but included as you have them
   {
     key: "C",
     src: "./sounds/Ds1.mp3",
@@ -241,8 +239,6 @@ const keys = [
     type: "black",
     whiteIndex: 2,
   },
-
-  // extra duplicates too
   {
     key: "N",
     src: "./sounds/C5.mp3",
@@ -288,10 +284,12 @@ let keyboard = document.querySelector(".keyboard");
 
 let note = document.querySelectorAll(".note");
 let noteText = document.querySelectorAll(".note-text");
+let keyText = document.querySelectorAll(".key-note");
 
 note.forEach((elem) => {
   elem.addEventListener("mousedown", () => {
     elem.style.backgroundColor = "#d5d5d5ff";
+      elem.style.color = elem.classList.contains("accidentals")? "#000000" : "#ffffff";
     let sound = new Audio(elem.getAttribute("data-src"));
     sound.play();
   });

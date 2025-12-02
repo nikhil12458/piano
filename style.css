@@ -19,15 +19,26 @@ main {
   width: 100%;
   height: 100%;
   padding: 2rem;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: url("./img/Gemini_Generated_Image_tzsu3ptzsu3ptzsu_upscayl_3x_upscayl-standard-4x.png");
+  background-size: cover;
+  background-position: center;
+  perspective: 1000px;
 }
 main .keyboard {
   display: flex;
-  position: relative;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(5rem) rotateX(20deg);
+  bottom: 1.5rem;
+  border: 4px solid #a1a0a0;
+  border-radius: 12px;
+  overflow: hidden;
 }
 main .keyboard .note {
   position: relative;
@@ -35,7 +46,6 @@ main .keyboard .note {
   width: var(--white-width);
   height: 18rem;
   outline: 1px solid #000;
-  border-radius: 0 0 50px 50px;
   box-shadow: inset 0px -14px 12px -11px #000;
   background-color: #fff;
   display: flex;
