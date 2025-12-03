@@ -296,6 +296,19 @@ note.forEach((elem) => {
   elem.addEventListener("mouseup", () => {
     elem.style.backgroundColor = elem.classList.contains("accidentals")? "#000000" : "#ffffff";
   });
+
+  elem.addEventListener("touchstart", (e)=>{
+    e.preventDefault();
+    
+    elem.style.backgroundColor = "#d5d5d5ff";
+    elem.style.color = elem.classList.contains("accidentals")? "#000000" : "#ffffff";
+    let sound = new audio(elem.getAttribute("data-src"));
+    sound.play();
+  })
+
+  elem.addEventListener("touchend", () => {
+    elem.style.backgroundColor = elem.classList.contains("accidentals")? "#000000" : "#ffffff";
+  })
 });
 
 document.body.addEventListener("keydown", (dets) => {

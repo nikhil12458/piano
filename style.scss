@@ -15,6 +15,21 @@ body {
   height: 100%;
 }
 
+@property --rotation{
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotationAnimation {
+  from{
+    --rotation: 0deg;
+  }
+  to{
+    --rotation: 360deg;
+  }
+}
+
 main {
   width: 100%;
   height: 100%;
@@ -26,7 +41,7 @@ main {
   background-color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: url('./img/Gemini_Generated_Image_tzsu3ptzsu3ptzsu_upscayl_3x_upscayl-standard-4x.png');
+  background: url("./img/Gemini_Generated_Image_tzsu3ptzsu3ptzsu_upscayl_3x_upscayl-standard-4x.png");
   background-size: cover;
   background-position: center;
   perspective: 1000px;
@@ -36,10 +51,13 @@ main {
     position: absolute;
     transform-style: preserve-3d;
     transform: translateZ(5rem) rotateX(20deg);
-    bottom: 1.5rem;
-    border: 4px solid #a1a0a0;
+    bottom: 2.5rem;
+    border: 4px solid transparent;
     border-radius: 12px;
     overflow: hidden;
+    background: linear-gradient(black) padding-box,
+      conic-gradient(from var(--rotation), #FFCB6F, #c7844b) border-box;
+    animation: rotationAnimation 8s linear infinite;
     
     .note {
       position: relative;

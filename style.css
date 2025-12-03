@@ -15,6 +15,19 @@ body {
   height: 100%;
 }
 
+@property --rotation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes rotationAnimation {
+  from {
+    --rotation: 0deg;
+  }
+  to {
+    --rotation: 360deg;
+  }
+}
 main {
   width: 100%;
   height: 100%;
@@ -35,10 +48,12 @@ main .keyboard {
   position: absolute;
   transform-style: preserve-3d;
   transform: translateZ(5rem) rotateX(20deg);
-  bottom: 1.5rem;
-  border: 4px solid #a1a0a0;
+  bottom: 2.5rem;
+  border: 4px solid transparent;
   border-radius: 12px;
   overflow: hidden;
+  background: linear-gradient(black) padding-box, conic-gradient(from var(--rotation), #FFCB6F, #c7844b) border-box;
+  animation: rotationAnimation 8s linear infinite;
 }
 main .keyboard .note {
   position: relative;
